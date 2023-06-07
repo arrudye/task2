@@ -2,20 +2,26 @@
 
 using namespace std;
 
-int fib(int n)
+void fib(int n)
 {
-     if (n==2) 
-         return 1;
-     if (n==0 || n==1) 
-         return 0;
-    return fib(n-1)+fib(n-2);
- }
+    int f1 = 0;
+    int f2 = 1;
+    cout << f1 << "\n" << f2 << "\n";
+    
+    int res = 0;
+    for(int i = 0; i < n - 2; i++) {
+        res = f1 + f2;
+        f1 = f2;
+        f2 = res;
+        cout << res << endl;
+    }
+}
 
 int main()
 {
     cout<<"Hello World! \nEnter n for Fibonacci sequence.\n";
     int n; cin >> n;
-    cout << "\n" << fib(n);
+    fib(n);
 
     return 0;
 }
